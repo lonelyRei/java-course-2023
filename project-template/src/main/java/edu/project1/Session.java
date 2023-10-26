@@ -14,6 +14,16 @@ class Session {
         String[] words = new Vocabulary().getWords();
         this.answer = words[new Random().nextInt(words.length)];
 
+        this.prepareGame();
+    }
+
+    Session(String answer) {
+        this.answer = answer;
+        this.prepareGame();
+
+    }
+
+    private void prepareGame() {
         this.userAnswer = "*".repeat(this.answer.length());
         this.attempts = 0;
     }
@@ -52,7 +62,10 @@ class Session {
         }
 
         this.userAnswer = updatedAnswer.toString();
+        return this.checkUserVictory();
+    }
 
+    private @NotNull GuessResult checkUserVictory() {
         if (this.userAnswer.contains("*")) {
             return new GuessResult.SuccessfulGuess();
         } else {
