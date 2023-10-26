@@ -6,49 +6,49 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class Task1Test {
     @Test
-    void TestConstant() {
+    void testThatConstantEqualsValue() {
         assertEquals(new Constant(2).evaluate(), 2);
     }
 
     @Test
-    void TestNegate() {
+    void testThatNegateEqualsValue() {
         assertEquals(new Negate(new Constant(42)).evaluate(), -42);
     }
 
     @Test
-    void TestAddition() {
+    void testThatAdditionEqualsValue() {
         Constant fortyTwo = new Constant(42);
         assertEquals(new Addition(fortyTwo, new Negate(fortyTwo)).evaluate(), 0);
     }
 
     @Test
-    void TestMultiplicationNegative() {
+    void testThatMultiplicationEqualsValue() {
         Constant fortyTwo = new Constant(42);
         Negate minusTwo = new Negate(new Constant(-2));
         assertEquals(new Multiplication(fortyTwo, minusTwo).evaluate(), 84);
     }
 
     @Test
-    void TestMultiplicationZero() {
+    void testThatMultiplicationEqualsZero() {
         Constant fortyTwo = new Constant(42);
         Negate zero = new Negate(new Constant(0));
         assertEquals(new Multiplication(fortyTwo, zero).evaluate(), 0);
     }
 
     @Test
-    void TestExponentZero() {
+    void testZeroPowerExponent() {
         Constant fortyTwo = new Constant(42);
         assertEquals(new Exponent(fortyTwo, 0).evaluate(), 1);
     }
 
     @Test
-    void TestExponentNegative() {
+    void testNegativeExponent() {
         Constant two = new Constant(2);
         assertEquals(new Exponent(two, -2).evaluate(), 0.25);
     }
 
     @Test
-    void TestExponentPositive() {
+    void testPositiveExponent() {
         Constant two = new Constant(2);
         assertEquals(new Exponent(two, 3).evaluate(), 8);
     }

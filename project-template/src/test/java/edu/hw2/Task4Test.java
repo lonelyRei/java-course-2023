@@ -6,12 +6,12 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class Task4Test {
     @Test
-    public void callingInfoTestMethodName() {
+    public void testCallingInfoMethodName() {
         assertEquals("callingInfoTestMethodName", Calling.callingInfo().methodName());
     }
 
     @Test
-    public void callingInfoTestClassName() {
+    public void testCallingInfoClassName() {
         assertEquals("edu.hw2.Task4Test", Calling.callingInfo().className());
     }
 }
